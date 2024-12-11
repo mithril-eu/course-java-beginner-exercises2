@@ -1,5 +1,7 @@
 package eu.mithril.java.edu7;
 
+import static eu.mithril.java.edu7.Notifiable.*;
+
 /*
  * Simple Notification System demonstrating interfaces
  *
