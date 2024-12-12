@@ -18,11 +18,25 @@ public class StreamMain {
         StudentAnalyzer analyzer = new StudentAnalyzer(students);
 
         // Test your implementations here
-        System.out.println("Average grade: " + analyzer.getAverageGrade());
-        System.out.println("\nStudents above 4.5: " + analyzer.getStudentsAboveGrade(4.5));
-        System.out.println("\nStudents by subject: " + analyzer.groupBySubject());
+        System.out.println("Average grade: " +
+                String.format("%.2f", analyzer.getAverageGrade()));
+
+        System.out.println("\nStudents above 4.5:");
+        analyzer.getStudentsAboveGrade(4.5)
+                .forEach(System.out::println);
+
+        System.out.println("\nStudents by subject:");
+        analyzer.groupBySubject()
+                .forEach((subject, studentList) -> {
+                    System.out.println(subject + ": " + studentList);
+                });
+
         System.out.println("\nBest student: " + analyzer.getBestStudent());
-        System.out.println("\nAverage grade by subject: " + analyzer.getAverageGradeBySubject());
+
+        System.out.println("\nAverage grade by subject:");
+        analyzer.getAverageGradeBySubject()
+                .forEach((subject, average) ->
+                        System.out.printf("%s: %.2f%n", subject, average));
     }
 }
 
